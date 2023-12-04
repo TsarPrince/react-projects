@@ -102,6 +102,7 @@ router.get("/profile", async (req, res, next) => {
 
 router.post("/login", async (req, res, next) => {
   try {
+    console.log(await UserModel.find())
     const user = await UserModel.findOne({ username: req.body.username })
     if (user == null) {
       return res.status(404).json({ error: "User not found" })
